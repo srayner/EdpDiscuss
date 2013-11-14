@@ -37,6 +37,10 @@ class MessageMapper extends AbstractDbMapper implements MessageMapperInterface, 
     public function getMessagesByThread($threadId, $limit = 25, $offset = 0)
     {
         $select = $this->getSelect()
+                       ->join(array('u' => 'user'),
+                              'u.user_id = discuss_message.author_user_id',
+                              array('username', 'display_name'),
+                              'left')
                        ->where(array($this->threadIDField => $threadId));
         return $this->select($select);
     }

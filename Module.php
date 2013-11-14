@@ -61,10 +61,9 @@ class Module
                 },
                 'edpdiscuss_message_mapper' => function($sm) {
                     $mapper = new \EdpDiscuss\Model\Message\MessageMapper;
-                    //$messageModelClass = static::getOption('message_model_class');
                     $messageModelClass = Module::getOption('message_model_class');
                     $mapper->setEntityPrototype(new $messageModelClass);
-                    $mapper->setHydrator(new \Zend\Stdlib\Hydrator\ClassMethods);
+                    $mapper->setHydrator(new \EdpDiscuss\Model\Message\MessageHydrator);
                     return $mapper;
                 },
                 'edpdiscuss_visit_mapper' => function($sm) {

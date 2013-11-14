@@ -2,8 +2,8 @@
 
 namespace EdpDiscuss\Model\Message;
 
-use ZfcUser\Model\UserInterface,
-    DateTime;
+use ZfcUser\Entity\UserInterface;
+use DateTime;
 
 interface MessageInterface
 {

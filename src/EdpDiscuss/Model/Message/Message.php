@@ -2,7 +2,7 @@
 
 namespace EdpDiscuss\Model\Message;
 
-use ZfcUser\Model\UserInterface;
+use ZfcUser\Entity\UserInterface;
 use DateTime;
 
 class Message implements MessageInterface
