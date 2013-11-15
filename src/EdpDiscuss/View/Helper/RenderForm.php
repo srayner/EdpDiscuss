@@ -16,6 +16,7 @@ class RenderForm extends AbstractHelper
         $elements = $form->getElements();
         foreach($elements as $element)
         {
+            $elementClass = get_class($element);
             $hidden = ($element->getAttribute('type') == 'hidden');
 
             $offset = "";
@@ -36,7 +37,7 @@ class RenderForm extends AbstractHelper
 
             // Render label if present.
             $label = $element->getLabel();
-            if (isset($label) && '' !== $label)
+            if (isset($label) && ('' !== $label) && ($elementClass != 'Zend\Form\Element\Button'))
             {
                 $element->setLabelAttributes(array('class' => 'col-sm-2 control-label'));
                 $output .= $this->view->formLabel($element) . PHP_EOL;
