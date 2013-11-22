@@ -31,7 +31,7 @@ class RenderForm extends AbstractHelper
                 if (empty($messages)) {
                     $output .= '<div class="form-group">' . PHP_EOL;
                 } else {
-                    $output .= '<div class="form-group error">';
+                    $output .= '<div class="form-group has-error">';
                 }
             }
 
@@ -49,7 +49,7 @@ class RenderForm extends AbstractHelper
                 $output .= '<div class=" ' . $offset . 'col-sm-10">' . PHP_EOL;
             }
             $output .= $this->view->formElement($element) . PHP_EOL;
-            $output .= $this->view->formElementErrors($element) . PHP_EOL;
+            $output .= $this->view->formElementErrors($element, array('class' => 'help-block')) . PHP_EOL;
             if (!$hidden)
             {
                 $output .= '</div>' . PHP_EOL;
